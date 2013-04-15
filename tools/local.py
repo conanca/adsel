@@ -77,7 +77,7 @@ def convert(content):
                 # 为当前市 设置其子项;当前省的子项中添加当前市
                 current_c[sub_text] = current_c_sub
                 current_p_sub.append(current_c)
-        elif item_str.find('TEXT-INDENT: 24pt;')>=0:
+        elif (item_str.find('TEXT-INDENT: 24pt;')>=0 or item_str.find('TEXT-ALIGN: left; MARGIN: 0cm 0cm 0pt 23.95pt;')>=0):
             #print '****************got a district:'+item_str
             # 赋值 当前区县;当前市的子项中添加当前区县
             current_d = creat_item(item_str)
