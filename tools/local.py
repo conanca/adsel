@@ -59,7 +59,7 @@ def convert(content):
     current_d = {}
     for item_str in item_arr:
         #print item_str
-        if item_str.find('TEXT-ALIGN: left; MARGIN:')>=0:
+        if item_str.find('TEXT-ALIGN: left; MARGIN: 0cm 0cm 0pt; mso-pagination: widow-orphan')>=0:
             #print 'got a province:'+item_str
             # 赋值 当前省;初始化 当前省的子项
             current_p = creat_item(item_str)
