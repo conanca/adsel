@@ -18,23 +18,21 @@ $.fn.adsel = function(o) {
 	if(citySel){
 		// 省份下拉框变化时，设置城市下拉框的option
 		var currentProvince;
-		this.each(function() {
-			me.change(function(){
-				citySel.find("option[value!='']").remove().end();
-				districtSel.find("option[value!='']").remove().end();
-				var pCode = me.val();
-				if(pCode!=''){
-					currentProvince = jQuery.grep(xzqh, function(province, index){
-						return (province.C == pCode);
-					})[0];
-					$.each(currentProvince.S, function(index, city) { 
-						var value = city.C
-						var text = city.N;
-						var newopt = '<option value="'+value+'">'+text+'</option>';
-						citySel.append(newopt);
-					})
-				}
-			});
+		me.change(function(){
+			citySel.find("option[value!='']").remove().end();
+			districtSel.find("option[value!='']").remove().end();
+			var pCode = me.val();
+			if(pCode!=''){
+				currentProvince = jQuery.grep(xzqh, function(province, index){
+					return (province.C == pCode);
+				})[0];
+				$.each(currentProvince.S, function(index, city) { 
+					var value = city.C
+					var text = city.N;
+					var newopt = '<option value="'+value+'">'+text+'</option>';
+					citySel.append(newopt);
+				})
+			}
 		});
 		// 设置省份下拉框默认值
 		if(o.pValue){
